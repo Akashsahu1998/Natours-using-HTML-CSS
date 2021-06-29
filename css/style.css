@@ -7,80 +7,95 @@ Dark green: #28b485
 
 */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; /* inherting the property from body selector */
+}
+
+html {
+  /*
+    We want to use the 10px but as we are setting it into the root so user can't able to change the size from the browser sertting, 
+    so we can't restrct user from changing it, so we can set it to percentage, the default size is 16px and if we are giving 100%,
+    then it will take completly 16px but we want here 10px wo we will take the division like 10/16 so we get 62.5% so we are going to use this.
+    [(10*100)/16] = 62.5.
+
+    font-size: 10px;
+   */
+  font-size: 62.5%;
 }
 
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  /* font-size: 16px; */
   line-height: 1.7;
   color: #777;
-  padding: 30px;
+  padding: 3rem;
+
+  box-sizing: border-box;
 }
 
 .header {
-    height: 95vh;
-    background-image: linear-gradient(
-        to right bottom,
-      rgba(126, 213, 111, 0.8), 
-      rgba(40, 180, 131, 0.8)) ,
-        url(../img/hero.jpg);
-    background-size: cover;
-    background-position: top;
-    position: relative;
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-    /* clip path reference = https://bennettfeely.com/clippy */
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(126, 213, 111, 0.8),
+      rgba(40, 180, 131, 0.8)
+    ),
+    url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* clip path reference = https://bennettfeely.com/clippy */
 }
 
 .logo-box {
-    position: absolute;
-    top: 40px;
-    left: 40px;
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
 }
 
 .logo {
-    height: 35px;
+  height: 3.5rem;
 }
 
-/*  
-    we can also hover on the element and can apply animation
-    .logo:hover {
-        animation: moveInRight 1s ease-out;
-    }
-*/
+/* we can also hover on the element and can apply animation */
+.logo-box:hover .logo {
+  animation: moveInRight 0.6s ease-in;
+}
 
 .text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .heading-primary {
-    color: #fff;
-    text-transform: uppercase;
+  color: #fff;
+  text-transform: uppercase;
 
-    /* to remove the shake in the animation */
-    backface-visibility: hidden;
-    margin-bottom: 60px;
+  /* to remove the shake in the animation */
+  backface-visibility: hidden;
+  margin-bottom: 6rem;
 }
 
 .heading-primary-main {
-    display: block;
-    font-size: 60px;
-    font-weight: 400;
-    letter-spacing: 35px;
+  display: block;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
 
-    animation: moveInLeft;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
-    
-    /* 
+  animation: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+
+  /* 
         animation-delay: 3s;
         animation-iteration-count: 3;
 
@@ -89,106 +104,108 @@ body {
 }
 
 .heading-primary-sub {
-    display: block;
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 17.4px;
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.75rem;
 
-    animation: moveInRight 1s ease-out;
+  animation: moveInRight 1s ease-out;
 }
 
 @keyframes moveInLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-100px);
-    }
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
 
-    80% {
-        transform: translate(10px);
-    }
+  80% {
+    transform: translate(1rem);
+  }
 
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }
 
 @keyframes moveInRight {
-    0% {
-        opacity: 0;
-        transform: translateX(100px);
-    }
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
 
-    80% {
-        transform: translate(-10px);
-    }
+  80% {
+    transform: translate(-1rem);
+  }
 
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }
 
 @keyframes moveInBottom {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
 
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }
 
-.btn:link, .btn:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 15px 40px;
-    display: inline-block;
-    border-radius: 100px;
-    transition: all .2s;
-    position: relative;
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all 0.2s;
+  position: relative;
+  font-size: 1.6rem;
 }
 
 .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, .2); /* direction(x or y), 10px direction(down) shadow, blurr(20 px), (Color) */
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); /* direction(x or y), 10px direction(down) shadow, blurr(20 px), (Color) */
 }
 
 .btn:active {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .2); /* direction(x or y), 10px direction(down) shadow, blurr(20 px), (Color) */
+  transform: translateY(-1px);
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.2); /* direction(x or y), 10px direction(down) shadow, blurr(20 px), (Color) */
 }
 
 .btn-white {
-    background-color: #fff;
-    color: #777;
+  background-color: #fff;
+  color: #777;
 }
 
 .btn::after {
-    content: "";
-    display: inline-block; /* The btn is a inline element */
-    height: 100%;
-    width: 100%;
-    border-radius: 100px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: all .4s;
+  content: "";
+  display: inline-block; /* The btn is a inline element */
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
 }
 
 .btn-white::after {
-    background-color: #fff;
+  background-color: #fff;
 }
 
 .btn:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);  /* Scale will increase the element */
-    opacity: 0;
+  transform: scaleX(1.4) scaleY(1.6); /* Scale will increase the element */
+  opacity: 0;
 }
 
 .btn-animated {
-    animation: moveInBottom .5s ease-out .75s; /* (.75s) is  like a delay*/
-    animation-fill-mode: backwards; /* This will just hide the button and automatically the style of 0% before the animation starts like a (opacity: 0;) */
+  animation: moveInBottom 0.5s ease-out 0.75s; /* (.75s) is  like a delay*/
+  animation-fill-mode: backwards; /* This will just hide the button and automatically the style of 0% before the animation starts like a (opacity: 0;) */
 }
