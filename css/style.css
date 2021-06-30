@@ -21,6 +21,7 @@ html {
     so we can't restrct user from changing it, so we can set it to percentage, the default size is 16px and if we are giving 100%,
     then it will take completly 16px but we want here 10px wo we will take the division like 10/16 so we get 62.5% so we are going to use this.
     [(10*100)/16] = 62.5.
+    1 rem = 10px;
 
     font-size: 10px;
    */
@@ -53,22 +54,22 @@ body {
   /* clip path reference = https://bennettfeely.com/clippy */
 }
 
-.logo-box {
+.header__logo-box {
   position: absolute;
   top: 4rem;
   left: 4rem;
 }
 
-.logo {
+.header__logo {
   height: 3.5rem;
 }
 
 /* we can also hover on the element and can apply animation */
-.logo-box:hover .logo {
+.header__logo-box:hover .header__logo {
   animation: moveInRight 0.6s ease-in;
 }
 
-.text-box {
+.header__text-box {
   position: absolute;
   top: 40%;
   left: 50%;
@@ -85,7 +86,7 @@ body {
   margin-bottom: 6rem;
 }
 
-.heading-primary-main {
+.heading-primary--main {
   display: block;
   font-size: 6rem;
   font-weight: 400;
@@ -103,7 +104,7 @@ body {
      */
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
   display: block;
   font-size: 2rem;
   font-weight: 700;
@@ -178,7 +179,7 @@ body {
   box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.2); /* direction(x or y), 10px direction(down) shadow, blurr(20 px), (Color) */
 }
 
-.btn-white {
+.btn--white {
   background-color: #fff;
   color: #777;
 }
@@ -196,7 +197,7 @@ body {
   transition: all 0.4s;
 }
 
-.btn-white::after {
+.btn--white::after {
   background-color: #fff;
 }
 
@@ -205,7 +206,7 @@ body {
   opacity: 0;
 }
 
-.btn-animated {
+.btn--animated {
   animation: moveInBottom 0.5s ease-out 0.75s; /* (.75s) is  like a delay*/
   animation-fill-mode: backwards; /* This will just hide the button and automatically the style of 0% before the animation starts like a (opacity: 0;) */
 }
