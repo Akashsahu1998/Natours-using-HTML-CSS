@@ -1,0 +1,48 @@
+/*
+The typography.scss file is meant to contain the general typography that affects our entire website, on which basis we can then introduce specific typographic variations in each component, which will then be part of that specific component.
+*/
+
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+
+  /* to remove the shake in the animation */
+  backface-visibility: hidden;
+  margin-bottom: 6rem;
+
+  &--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+
+    animation: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+    /* 
+            animation-delay: 3s;
+            animation-iteration-count: 3;
+    
+            Animation Timing Function Reference = https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function
+         */
+  }
+
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+
+    animation: moveInRight 1s ease-out;
+  }
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: $color-grey-dark;
+  padding: 3rem;
+}

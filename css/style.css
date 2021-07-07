@@ -6,6 +6,9 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+/*
+It helps keep our code more organized; we can put the styles that all components should inherit here so that we can change them in only one place and have that change reflected across our entire page.
+*/
 *,
 *::after,
 *::before {
@@ -27,64 +30,7 @@ html {
   font-size: 62.5%; }
 
 body {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  /* font-size: 16px; */
-  line-height: 1.7;
-  color: #777;
-  padding: 3rem;
   box-sizing: border-box; }
-
-.header {
-  height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  background-size: cover;
-  background-position: top;
-  position: relative;
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  /* clip path reference = https://bennettfeely.com/clippy */
-  /* we can also hover on the element and can apply animation */ }
-  .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem; }
-  .header__logo {
-    height: 3.5rem; }
-  .header__logo-box:hover .header__logo {
-    animation: moveInRight 0.6s ease-in; }
-  .header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center; }
-
-.heading-primary {
-  color: #fff;
-  text-transform: uppercase;
-  /* to remove the shake in the animation */
-  backface-visibility: hidden;
-  margin-bottom: 6rem; }
-  .heading-primary--main {
-    display: block;
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    animation: moveInLeft;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
-    /* 
-          animation-delay: 3s;
-          animation-iteration-count: 3;
-  
-          Animation Timing Function Reference = https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function
-       */ }
-  .heading-primary--sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
-    animation: moveInRight 1s ease-out; }
 
 @keyframes moveInLeft {
   0% {
@@ -113,6 +59,44 @@ body {
   100% {
     opacity: 1;
     transform: translate(0); } }
+
+/*
+The typography.scss file is meant to contain the general typography that affects our entire website, on which basis we can then introduce specific typographic variations in each component, which will then be part of that specific component.
+*/
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  /* to remove the shake in the animation */
+  backface-visibility: hidden;
+  margin-bottom: 6rem; }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /* 
+            animation-delay: 3s;
+            animation-iteration-count: 3;
+    
+            Animation Timing Function Reference = https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function
+         */ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 1s ease-out; }
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem; }
 
 .btn:link, .btn:visited {
   text-transform: uppercase;
@@ -163,3 +147,27 @@ body {
   /* (.75s) is  like a delay*/
   animation-fill-mode: backwards;
   /* This will just hide the button and automatically the style of 0% before the animation starts like a (opacity: 0;) */ }
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* clip path reference = https://bennettfeely.com/clippy */
+  /* we can also hover on the element and can apply animation */ }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__logo-box:hover .header__logo {
+    animation: moveInRight 0.6s ease-in; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }
