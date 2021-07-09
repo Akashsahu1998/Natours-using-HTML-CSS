@@ -1,12 +1,4 @@
 /*
-COLORS:
-
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-
-*/
-/*
 It helps keep our code more organized; we can put the styles that all components should inherit here so that we can change them in only one place and have that change reflected across our entire page.
 */
 *,
@@ -171,3 +163,39 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center; }
+
+.row {
+  max-width: 114rem;
+  background-color: #eee;
+  margin: 0 auto;
+  /* "^" it means the class which is starting from "col-" in the whole html file, "*" which contains, "$" which contains in the last *, we can select the img, src, alt, link, anchor tag whose target attribute is blank  */ }
+  .row:not(:last-child) {
+    margin-bottom: 8rem;
+    /*
+        &:not = not pseudo selector means last child of row, except last child.
+        (.row:last-child)
+        bcz we dont want to apply the margin bottom on the last child
+        */ }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    background-color: orangered;
+    float: left;
+    color: white; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2);
+    /* with the help of calc(), we can mathematical operation and can make units */ }
+  .row .col-1-of-3 {
+    width: calc((100% - 2 * 6rem) / 3); }
+  .row .col-2-of-3 {
+    width: calc(2 * ((100% - 2 * 6rem) / 3) + 6rem); }
+  .row .col-1-of-4 {
+    width: calc((100% - 3 * 6rem) / 4); }
+  .row .col-2-of-4 {
+    width: calc(2 * ((100% - 3 * 6rem) / 4) + 6rem); }
+  .row .col-3-of-4 {
+    width: calc(3 * ((100% - 3 * 6rem) / 4) + (2 * 6rem)); }
