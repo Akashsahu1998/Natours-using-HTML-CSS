@@ -1,7 +1,15 @@
 .u-center-text {
-    text-align: center; // that heading is a inline block so we can easily set to center by making its parent as a center
+  text-align: center; // that heading is a inline block so we can easily set to center by making its parent as a center
 }
 
-.u-margin-bottom-8{
-    margin-bottom: 8rem;
+.u-margin-bottom-big {
+  margin-bottom: 8rem;
+}
+
+.u-margin-bottom-medium {
+  margin-bottom: 4rem;
+}
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem;
 }
