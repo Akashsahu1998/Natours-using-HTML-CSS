@@ -1,6 +1,5 @@
 .row {
   max-width: 114rem;
-  background-color: #eee;
   margin: 0 auto;
 
   &:not(:last-child) {
@@ -17,9 +16,7 @@
   // attribute selector
   /* "^" it means the class which is starting from "col-" in the whole html file, "*" which contains, "$" which contains in the last *, we can select the img, src, alt, link, anchor tag whose target attribute is blank  */
   [class^="col-"] {
-    background-color: orangered;
     float: left;
-    color: white;
 
     &:not(:last-child) {
       margin-right: $gutter-horizontal;
